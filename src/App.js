@@ -24,7 +24,16 @@ function App() {
         <p>6- learn axios fetch</p>
         <p>7- fetch api and store json</p>
         <p>8- connect api with label</p>
+        <p>-----------------------------------</p>
       </div>
+
+      {/* { Title } */}
+      <div>
+        <p className=" text-center text-sky-300 font-bold text-3xl">Random Quote Generator</p>
+      </div>
+
+      {/* { Display Label } */}
+      <div></div>
 
 
     </div>
