@@ -3,18 +3,15 @@ import React from "react";
 import { useState } from "react";
 import Workflow from "./components/Workflow";
 import axios from 'axios';
+import { useEffect } from "react";
 
 function App() {
 
-  const [quoteDisplay, updateQuoteDisplay] = useState("quoteDisplay Initial State");
+  // const [quoteDisplay, updateQuoteDisplay] = useState("quoteDisplay Initial State");
+  const [quoteDisplay, updateQuoteDisplay] = useState(null);
   
-
-  const newQuoteButtonHandler = () => {
-    updateQuoteDisplay("get a quote from api response");
-  };
-
   const axiosApiCall = () => {
-    const category = 'happiness';
+    const category = 'funny';
     const apiUrl = 'https://api.api-ninjas.com/v1/quotes';
     const apiKey = process.env.REACT_APP_APININJAS_API_KEY;
 
@@ -29,6 +26,10 @@ function App() {
         },
       })
       .then(function (response) {
+        const [data] = response.data; // Destructure the object from the array
+        const { author, category, quote } = data; // Destructure the properties
+        const quoteData = { author, category, quote }; // Store the properties in an object
+        updateQuoteDisplay(quoteData); // Store the quoteData object in the state
         console.log(response.data);
       })
       .catch(function (error) {
@@ -37,8 +38,13 @@ function App() {
   }
 
   useEffect(() => {
-    axiosApiCall(); // Call the axiosApiCall function
+    // axiosApiCall(); // Call the axiosApiCall function
   }, []);
+
+  const newQuoteButtonHandler = () => {
+    axiosApiCall();
+  };
+
 
   return (
     <div className="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-600 min-h-[100vh]">
@@ -51,9 +57,12 @@ function App() {
       </div>
 
         {/* { Display Label } */}
-      <div className="">
-        <label className="flex justify-center py-5 mx-20 lg:mx-[25rem] bg-gradient-to-r from-slate-700 to-gray-500 rounded-lg text-gray-200 outline outline-slate-500/80 outline-2 drop-shadow-lg">{quoteDisplay}</label>
-      </div>
+        <div className="">
+          <label className="flex justify-center py-5 mx-20 lg:mx-[25rem] bg-gradient-to-r from-slate-700 to-gray-500 rounded-lg text-gray-200 outline outline-slate-500/80 outline-2 drop-shadow-lg">
+            {quoteDisplay ? quoteDisplay.quote : 'click the button'}
+          </label>
+        </div>
+
 
         {/* { Button } */}
       <div className="flex justify-center">
