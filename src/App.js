@@ -48,6 +48,7 @@ function App() {
       <div className="flex justify-center py-6"><img src={logo} className="App-logo" alt="logo" /></div>
       {/* <Workflow /> */}
       <AppTitle />
+      <p className="text-white text-xs text-center">External API Quote Fetch via Axios</p>
       <DisplayLabel quote={quoteDisplay ? quoteDisplay.quote : "click the button"}/>
       <ButtonQuote newQuoteButtonHandler={newQuoteButtonHandler} />
     </div>
