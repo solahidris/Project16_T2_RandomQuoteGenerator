@@ -1,19 +1,14 @@
-import logo from "../logo.svg";
 import React from "react";
 
 const Workflow = () => {
   return (
     <div>
-      <div className="flex justify-center py-6">
-        <img src={logo} className="App-logo" alt="logo" />
-      </div>
-
       <div className="text-center mx-[18%] font-mono text-xs text-white">
         <p className="font-bold pb-4">Random Quote Generator</p>
         <p className="lg:mx-[8rem]">
           Build a random quote generator app in React where the user can see
-          randomly generated quotes through external API (called using Axios) and generates a new
-          quote the button is clicked.
+          randomly generated quotes through external API (called using Axios)
+          and generates a new quote the button is clicked.
         </p>
       </div>
 
@@ -26,8 +21,8 @@ const Workflow = () => {
         <p>5- find api to fetch✅</p>
         <p>6- learn axios fetch✅</p>
         <p>6.5- install axios✅</p>
-        <p>7- fetch api and store json</p>
-        <p>8- connect api with label</p>
+        <p>7- fetch api and store json✅</p>
+        <p>8- connect api with label✅</p>
         <p>-----------------------------------</p>
       </div>
     </div>
